@@ -36,6 +36,18 @@ public class Main {
         }
     }
 
+    public static void deleteEmployee(Statement st){
+        Scanner sc = new Scanner(System.in);
+        IO.println("Enter id : ");
+        String id = sc.next();
+        String sql = "DELETE FROM employee WHERE id = " + id;
+        try {
+            int row = st.executeUpdate(sql);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args){
         String url = "jdbc:mysql://localhost:3306/college";
         String user = "root";
@@ -45,7 +57,8 @@ public class Main {
             Statement st = con.createStatement();
 
 //            insertEmployee(st);
-              updateEmployee(st);
+//              updateEmployee(st);
+            deleteEmployee(st);
         } catch (SQLException e) {
             e.printStackTrace();
         }
