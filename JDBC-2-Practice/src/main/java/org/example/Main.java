@@ -1,22 +1,35 @@
 package org.example;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
-    public static void insertEmployee(Statement st){
+    static String url = "jdbc:mysql://localhost:3306/college";
+    static String user = "root";
+    static String pass = "Aman@2007";
+
+    public static void insertEmployee() throws SQLException {
         Scanner sc = new Scanner(System.in);
         String name = sc.next();
         String salary = sc.next();
         String department = sc.next();
-        String sql = "INSERT INTO employee(name, salary, department) " +
-                    "VALUES('" + name + "', " + salary + ", '" + department + "')";
+        LocalDateTime now = LocalDateTime.now();
+
+        Connection con = DriverManager.getConnection(url,user,pass);
+
+        String sql = "INSERT INTO employee(name, salary, department,joining_date) " +
+                    "VALUES(?,?,?,?)";
+
         try {
-            int row = st.executeUpdate(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, salary);
+            ps.setString(3, department);
+            ps.setTimestamp(4, Timestamp.valueOf(now));
+
+            int row = ps.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -48,17 +61,14 @@ public class Main {
         }
     }
 
-    public static void main(String[] args){
-        String url = "jdbc:mysql://localhost:3306/college";
-        String user = "root";
-        String pass = "Aman@2007";
+    public static void main(String[] args) throws SQLException {
+        Connection con = DriverManager.getConnection(url,user,pass);
         try {
-            Connection con = DriverManager.getConnection(url,user,pass);
             Statement st = con.createStatement();
 
-//            insertEmployee(st);
-//              updateEmployee(st);
-            deleteEmployee(st);
+            insertEmployee();
+//            updateEmployee(st);
+//            deleteEmployee(st);
         } catch (SQLException e) {
             e.printStackTrace();
         }
