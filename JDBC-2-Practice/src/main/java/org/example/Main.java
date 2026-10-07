@@ -22,6 +22,20 @@ public class Main {
         }
     }
 
+    public static void updateEmployee(Statement st){
+        Scanner sc = new Scanner(System.in);
+        IO.println("Enter id : ");
+        String id = sc.next();
+        IO.println("Enter salary : ");
+        double salary = sc.nextDouble();
+        String sql = "UPDATE employee SET salary = " + salary + "WHERE id = " + id;
+        try {
+            int row = st.executeUpdate(sql);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args){
         String url = "jdbc:mysql://localhost:3306/college";
         String user = "root";
@@ -30,8 +44,8 @@ public class Main {
             Connection con = DriverManager.getConnection(url,user,pass);
             Statement st = con.createStatement();
 
-            insertEmployee(st);
-
+//            insertEmployee(st);
+              updateEmployee(st);
         } catch (SQLException e) {
             e.printStackTrace();
         }
