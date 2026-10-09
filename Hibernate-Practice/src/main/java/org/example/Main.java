@@ -18,6 +18,7 @@ public class Main {
 
         session.beginTransaction();
 
+
         /*
 
 //        Employee employee = new Employee("Aman",70000.0);
