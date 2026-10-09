@@ -16,7 +16,7 @@ public class Department {
 
     private String name;
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
     private List<Employee> employees = new ArrayList<>();
 
     public Department() {
@@ -41,5 +41,10 @@ public class Department {
     public void addEmployee(Employee employee) {
         employees.add(employee);
         employee.setDepartment(this);
+    }
+
+    public void removeEmployee(Employee employee) {
+        employees.remove(employee);
+        employee.setDepartment(null);
     }
 }
