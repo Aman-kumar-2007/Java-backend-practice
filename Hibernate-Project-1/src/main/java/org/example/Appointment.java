@@ -1,6 +1,8 @@
 package org.example;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,18 +25,34 @@ public class Appointment {
     @Column(name = "appointment_time")
     private LocalTime appointmentTime;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
+    @Column(name = "created_at",updatable = false)
     private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Version
+    @Column(name = "version")
+    private int version;
 
     public Appointment(){
 
     }
 
-    public Appointment(String title, LocalDate appointmentDate, LocalTime appointmentTime, LocalDateTime createdAt) {
+    public Appointment(String title, LocalDate appointmentDate, LocalTime appointmentTime) {
         this.title = title;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
-        this.createdAt = createdAt;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAppointmentTime(LocalTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 
     public Long getId() {
@@ -55,5 +73,13 @@ public class Appointment {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public int getVersion() {
+        return version;
     }
 }
