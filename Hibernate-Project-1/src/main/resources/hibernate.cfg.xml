@@ -32,6 +32,22 @@
             true
         </property>
 
+        <property name="hibernate.connection.provider_class">
+            hikaricp
+        </property>
+
+        <property name="hibernate.hikari.maximumPoolSize">
+            5
+        </property>
+
+        <property name="hibernate.hikari.connectionTimeout">
+            30000
+        </property>
+
+        <property name="hibernate.hikari.poolName">
+            HibernatePool
+        </property>
+
         <mapping class="org.example.Employee"/>
         <mapping class="org.example.Department"/>
         <mapping class="org.example.Appointment"/>
