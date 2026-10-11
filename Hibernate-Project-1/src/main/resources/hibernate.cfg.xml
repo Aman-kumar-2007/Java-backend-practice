@@ -34,6 +34,7 @@
 
         <mapping class="org.example.Employee"/>
         <mapping class="org.example.Department"/>
+        <mapping class="org.example.Appointment"/>
 
     </session-factory>
 
