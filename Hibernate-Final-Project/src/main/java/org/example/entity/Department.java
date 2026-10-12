@@ -26,6 +26,10 @@ public class Department {
     public Department() {
     }
 
+    public Department(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
