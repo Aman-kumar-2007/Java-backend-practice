@@ -2,6 +2,7 @@ package org.example.CRUD;
 
 import org.example.entity.Department;
 import org.example.entity.Student;
+import org.example.entity.StudentProfile;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,24 +16,48 @@ public class StudentCrud {
     public void addStudent(SessionFactory factory){
         Scanner sc =  new Scanner(System.in);
 
-        IO.println("Enter name : ");
+        IO.print("Enter name : ");
         String name = sc.next();
-        IO.println("Enter email : ");
+        IO.print("Enter email : ");
         String email = sc.next();
+        IO.print("Enter Address : ");
+        String address = sc.next();
+        IO.print("Enter Phone number  : ");
+        String phone = sc.next();
+        IO.print("Enter department Id");
+        Long departmentId = sc.nextLong();
+
+        Transaction tx = null;
 
         try(Session session = factory.openSession()){
 
-            Transaction tx = session.beginTransaction();
+            tx = session.beginTransaction();
+
+            Department department =
+                    session.find(Department.class, departmentId);
+
+            if (department == null) {
+                System.out.println("Department not found.");
+                tx.rollback();
+                return;
+            }
 
             Student student = new Student(name,email);
+            StudentProfile profile =
+                    new StudentProfile(address, phone);
+
+            student.setDepartment(department);
+            student.setStudentProfile(profile);
+
             session.persist(student);
 
             tx.commit();
 
             System.out.println("Student added successfully!");
-            System.out.println("Student ID: " + student.getId());
-
         } catch (Exception e) {
+            if(tx != null && tx.isActive()){
+                tx.rollback();
+            }
             e.printStackTrace();
         }
     }

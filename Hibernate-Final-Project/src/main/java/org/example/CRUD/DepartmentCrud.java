@@ -94,7 +94,7 @@ public class DepartmentCrud {
 
             System.out.println("Department assigned successfully!");
         } catch (Exception e) {
-            if(tx.isActive()){
+            if(tx != null && tx.isActive()){
                 tx.rollback();
             }
             e.printStackTrace();

@@ -15,7 +15,7 @@ public class StudentProfile {
     private String address;
 
     @Column(name = "student_phone_no")
-    private int Phone;
+    private String Phone;
 
     @OneToOne(
             mappedBy = "profiles"
@@ -25,7 +25,7 @@ public class StudentProfile {
     public StudentProfile() {
     }
 
-    public StudentProfile(String address, int phone) {
+    public StudentProfile(String address, String phone) {
         this.address = address;
         Phone = phone;
     }
@@ -38,7 +38,7 @@ public class StudentProfile {
         return address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
