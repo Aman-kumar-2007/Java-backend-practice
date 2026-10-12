@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +53,10 @@ public class Student {
     public Student(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
