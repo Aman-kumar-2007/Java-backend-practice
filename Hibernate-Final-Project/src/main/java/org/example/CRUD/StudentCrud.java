@@ -176,11 +176,5 @@ public class StudentCrud {
         }
     }
 
-    public static void main(){
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-
-        try(SessionFactory factory = cfg.buildSessionFactory()) {
-
-        }
-    }
+    
 }
