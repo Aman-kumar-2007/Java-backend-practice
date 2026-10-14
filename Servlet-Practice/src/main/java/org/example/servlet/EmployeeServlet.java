@@ -13,27 +13,15 @@ import java.io.PrintWriter;
 public class EmployeeServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
             throws IOException, ServletException {
-        response.setContentType("text/html");
 
-        String name = request.getParameter("name");
-
-        if (name == null || name.isBlank()) {
-            name = "Guest";
-        }
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html><body>");
-            out.println("<h2>Welcome, " + escapeHtml(name) + "</h2>");
-            out.println("<a href='employee-form.html'>Register Employee</a>");
-            out.println("</body></html>");
-        }
-
-
+        response.sendRedirect(
+                request.getContextPath() + "/employee-form.html"
+        );
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException,ServletException {
