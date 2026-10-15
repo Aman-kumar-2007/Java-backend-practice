@@ -17,4 +17,10 @@
     <location>/WEB-INF/errors/500.html</location>
   </error-page>
 
+  <context-param>
+    <param-name>collegeName</param-name>
+    <param-value>PW IOI</param-value>
+  </context-param>
+
 </web-app>
+
