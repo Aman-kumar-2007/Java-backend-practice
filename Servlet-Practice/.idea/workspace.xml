@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4adca141-5382-4638-b2e6-c271120d62e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/servlet/ErrorDemoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/errors/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/errors/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/session/DashboardServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/session/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/session/LogoutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JDBC-Practice" beforeDir="false" afterPath="$PROJECT_DIR$/../JDBC-Practice" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/servlet/IncludeDemoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/servlet/IncludeDemoServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,8 +63,8 @@
     "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">

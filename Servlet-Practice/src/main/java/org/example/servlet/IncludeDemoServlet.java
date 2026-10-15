@@ -21,7 +21,7 @@ public class IncludeDemoServlet extends HttpServlet{
         response.setContentType("text/html;charset=UTF-8");
 
         var dispatcher =
-                request.getRequestDispatcher("/fragments/header.html");
+                request.getRequestDispatcher("header.html");
 
         dispatcher.include(request, response);
 
@@ -32,7 +32,7 @@ public class IncludeDemoServlet extends HttpServlet{
         out.println("<p>This is the main page content.</p>");
         out.println("</main>");
 
-        request.getRequestDispatcher("/fragments/footer.html")
+        request.getRequestDispatcher("footer.html")
                 .include(request, response);
     }
 }
