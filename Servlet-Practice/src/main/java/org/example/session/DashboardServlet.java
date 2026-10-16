@@ -1,4 +1,4 @@
-package org.example.servlet;
+package org.example.session;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -17,17 +17,6 @@ public class DashboardServlet extends HttpServlet {
     ) throws IOException {
 
         HttpSession session = request.getSession(false);
-
-        if (session == null ||
-                session.getAttribute("username") == null) {
-
-            response.sendRedirect(
-                    response.encodeRedirectURL(
-                            request.getContextPath() + "/login"
-                    )
-            );
-            return;
-        }
 
         String username =
                 (String) session.getAttribute("username");

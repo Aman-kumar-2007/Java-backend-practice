@@ -1,4 +1,4 @@
-package org.example.servlet;
+package org.example.session;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
